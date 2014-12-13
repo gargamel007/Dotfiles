@@ -25,3 +25,5 @@ ln -fs $BASEDIR/tmux.conf ~/.tmux.conf
 ln -fs $BASEDIR/vimrc ~/.vimrc
 ln -fs $BASEDIR/zshrc ~/.zshrc
 
+#Install Vundle plugins in vim
+vim +PluginInstall +qall

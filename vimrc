@@ -63,6 +63,7 @@ set hlsearch incsearch
 set ignorecase smartcase
 
 set background=dark
+syntax on
 
 """"""""""""""""
 " PLUGIN CONFIG
