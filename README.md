@@ -14,13 +14,18 @@ Basic dotfiles I often use on my systems
 ### Panes
 * Split pane Vertically : %
 * Split pane Horizontally : "
-
+* Zoom pane : z
+* Enter copy mode : [ or Pg-Up
 
 ## Vim Cheatsheet
+* Auto indent the whole file : gg=G
 
 ### Plugins
 * Toggle NerdTree : <F3>
+  * Bring Node Menu (to add a file) : m
 
+* Toggle Ctl-P : ctrl-p
+  * Swith mode : ctrl-b
 
 ## Shell & Zsh
 
