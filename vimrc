@@ -63,6 +63,15 @@ set hlsearch incsearch
 set ignorecase smartcase
 
 set background=dark
+" Setup Solarized
+if has('gui_running')
+    " running gui not really planned right now !
+else
+    " in terminal mode assuming that solarized theme is selected
+    set t_Co=16
+    let g:solarized_termcolors=16
+endif
+
 syntax on
 
 """"""""""""""""
