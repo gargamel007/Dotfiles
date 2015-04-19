@@ -80,4 +80,5 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tmux="tmux -2"
 alias gwdiff="git diff --word-diff=color"
+alias ls="ls -F" #shows trailing / at the end of DirNames
 alias ll="ls -hal"
