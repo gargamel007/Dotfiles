@@ -83,5 +83,6 @@ alias gwdiff="git diff --word-diff=color"
 alias ls="ls --color=auto -F" #shows trailing / at the end of DirNames
 alias ll="ls -hal"
 
-#Solarized Colors
+#Solarized Colors for ls and auto-completion
 eval `dircolors ~/.dircolors`
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
