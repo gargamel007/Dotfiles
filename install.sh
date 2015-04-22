@@ -23,8 +23,11 @@ mv -f /tmp/dircolors.ansi-dark ~/.dircolors
 eval `dircolors ~/.dircolors`
 
 #Install solarized colors for tmux
-wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/seebi/tmux-colors-solarized/master/tmuxcolors-256.conf
-mv -f /tmp/tmuxcolors-256.conf ~/.tmuxcolors-256.conf
+#Testing the dark setting with better colors
+#wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/seebi/tmux-colors-solarized/master/tmuxcolors-256.conf
+#mv -f /tmp/tmuxcolors-256.conf ~/.tmuxcolors-custom.conf
+wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/seebi/tmux-colors-solarized/master/tmuxcolors-dark.conf
+mv -f /tmp/tmuxcolors-dark.conf ~/.tmuxcolors-custom.conf
 
 # Linking files
 ln -fs $BASEDIR/tmux.conf ~/.tmux.conf

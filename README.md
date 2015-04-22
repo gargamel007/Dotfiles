@@ -29,3 +29,6 @@ Basic dotfiles I often use on my systems
 
 ## Shell & Zsh
 
+
+## Git Cheatsheet
+* Word diff : git diff --color-words=.

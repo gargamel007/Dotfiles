@@ -86,3 +86,12 @@ alias ll="ls -hal"
 #Solarized Colors for ls and auto-completion
 eval `dircolors ~/.dircolors`
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+#Fix wrong terminal colors when using tmux 
+#because xfce term do not have the right $TERM setting
+if [ "$COLORTERM" = "gnome-terminal" -a "$TERM" = "xterm" ]; then
+        export TERM=gnome-256color
+fi
+if [ "$COLORTERM" = "xfce4-terminal" -a "$TERM" = "xterm" ]; then
+        export TERM=xterm-256color
+fi
