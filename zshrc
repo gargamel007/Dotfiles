@@ -83,11 +83,14 @@ alias gwdiff="git diff --word-diff=color"
 alias ls="ls --color=auto -F" #shows trailing / at the end of DirNames
 alias ll="ls -hal"
 
+#git aliases
+alias git_word-diff="git diff --color-words=."
+
 #Solarized Colors for ls and auto-completion
 eval `dircolors ~/.dircolors`
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-#Fix wrong terminal colors when using tmux 
+#Fix wrong terminal colors when using tmux
 #because xfce term do not have the right $TERM setting
 if [ "$COLORTERM" = "gnome-terminal" -a "$TERM" = "xterm" ]; then
         export TERM=gnome-256color
