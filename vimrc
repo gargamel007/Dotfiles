@@ -46,7 +46,8 @@ filetype plugin indent on    " required
 let mapleader=","
 
 set cursorline
-set number
+" Hide line numbers easier to copy paste
+set nonumber
 set nowrap
 set hidden
 
