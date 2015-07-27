@@ -45,6 +45,8 @@ git config --global color.branch auto
 ln -fs $BASEDIR/tmux.conf ~/.tmux.conf
 ln -fs $BASEDIR/vimrc ~/.vimrc
 ln -fs $BASEDIR/zshrc ~/.zshrc
+ln -fs $BASEDIR/xfce4_terminalrc ~/.config/xfce4/terminal/terminalrc
+
 
 #Install Vundle plugins in vim
 vim +PluginInstall +qall
