@@ -50,6 +50,11 @@ if [[ -d ~/.config/xfce4/terminal/ ]]; then
 fi
 
 
+#install babun solarized theme if babun is detected
+if [[ -e ~/.minttyrc ]]; then
+    ln -fs $BASEDIR/minttyrc ~/.minttyrc
+fi
+
 echo "please run git config --global user.name USERNAME"
 echo "please run git config --global user.email EMAIL"
 echo "please run sh -c \"\$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)\""

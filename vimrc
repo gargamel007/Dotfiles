@@ -22,7 +22,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
-
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -57,6 +57,9 @@ if !isdirectory($HOME."/.vim/swapfiles")
 endif
 set swapfile
 set directory=$HOME/.vim/swapfiles//
+set nobackup
+set noundofile
+
 
 " Search config
 set showmatch
