@@ -81,8 +81,8 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 alias tmux="tmux -2"
 alias gwdiff="git diff --word-diff=color"
 alias ls="ls --color=auto -F" #shows trailing / at the end of DirNames
-alias ll="ls -hal"
-
+alias ll="ls -hl"
+alias la="ls -hal"
 #git aliases
 alias git_word-diff="git diff --color-words=."
 
