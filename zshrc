@@ -45,7 +45,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-not-found common-aliases colored-man sudo tmux z)
+plugins=(git command-not-found common-aliases colored-man sudo tmux z tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,6 +85,7 @@ alias ll="ls -hl"
 alias la="ls -hal"
 #git aliases
 alias git_word-diff="git diff --color-words=."
+alias mux="tmuxinator"
 
 #Solarized Colors for ls and auto-completion
 eval `dircolors ~/.dircolors`
