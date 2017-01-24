@@ -36,7 +36,8 @@ git config --global credential.helper "cache --timeout=7200"
 git config --global color.diff auto
 git config --global color.status auto
 git config --global color.branch auto
-
+git config --global user.name ioExpander
+git config --global user.email ioExpander@users.noreply.github.com
 
 # Linking files
 ln -fs $BASEDIR/tmux.conf ~/.tmux.conf
@@ -55,6 +56,4 @@ if [[ -e ~/.minttyrc ]]; then
     ln -fs $BASEDIR/minttyrc ~/.minttyrc
 fi
 
-echo "please run git config --global user.name USERNAME"
-echo "please run git config --global user.email EMAIL"
 echo "please run sh -c \"\$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)\""
