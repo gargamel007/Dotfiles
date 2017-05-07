@@ -23,6 +23,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -75,7 +76,7 @@ else
     set t_Co=16
     let g:solarized_termcolors=16
 endif
-
+silent! colorscheme solarized
 syntax on
 
 """"""""""""""""
