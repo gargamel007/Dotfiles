@@ -17,9 +17,15 @@ prompt_setup_pygmalion(){
 }
 
 prompt_pygmalion_precmd(){
+  #Add virtualenvwrapper info
+  if [[ -z "$VIRTUAL_ENV" ]]; then
+    local virtualenv_name=""
+  else
+    local virtualenv_name="(`basename \"$VIRTUAL_ENV\"`) "
+  fi
   local gitinfo=$(git_prompt_info)
   local gitinfo_nocolor=$(echo "$gitinfo" | perl -pe "s/%\{[^}]+\}//g")
-  local exp_nocolor="$(print -P \"$base_prompt_nocolor$gitinfo_nocolor$post_prompt_nocolor\")"
+  local exp_nocolor="$(print -P \"$virtualenv_name$base_prompt_nocolor$gitinfo_nocolor$post_prompt_nocolor\")"
   local prompt_length=${#exp_nocolor}
 
   local newline=$'\n%{\r%}';
@@ -28,9 +34,7 @@ prompt_pygmalion_precmd(){
   if [[ $prompt_length -gt 35 ]]; then
     nl=$newline
   fi
-  PROMPT="$newline$base_prompt$gitinfo$nl$post_prompt"
+  PROMPT="$newline$virtualenv_name$base_prompt$gitinfo$nl$post_prompt"
 }
 
 prompt_setup_pygmalion
-
-
