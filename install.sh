@@ -28,7 +28,7 @@ done
 
 if [ ! -d ~/.oh-my-zsh ]; then
 	#Temp fix as long as https://github.com/robbyrussell/oh-my-zsh/pull/5893 is not fixed
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch || {
+	sh -c "$(wget https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh -O -)" -s --batch || {
 	  echo "Could not install Oh My Zsh" >/dev/stderr
 	  exit 1
 	}
