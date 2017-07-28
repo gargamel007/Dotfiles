@@ -26,11 +26,16 @@ do
 	which $PROG >/dev/null || { echo "Please install $PROG"; exit 1; }
 done
 
-#Check OhMyZsh Installation - Might not be needed when PR to enable batch installation is accepted ! 
 if [ ! -d ~/.oh-my-zsh ]; then
-	echo "Oh My Zsh is not installed. Please run : "
-	echo "sh -c \"\$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)\""
-	exit 1
+	#Temp fix as long as https://github.com/robbyrussell/oh-my-zsh/pull/5893 is not fixed
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch || {
+	  echo "Could not install Oh My Zsh" >/dev/stderr
+	  exit 1
+	}
+	#will not be needed when PR to enable batch installation is accepted !
+	#echo "Oh My Zsh is not installed. Please run : "
+	#echo "sh -c \"\$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)\""
+	#exit 1
 fi
 
 #Install OhMyZshTheme
@@ -78,4 +83,3 @@ fi
 if [[ -e ~/.minttyrc ]]; then
     ln -fs $BASEDIR/minttyrc ~/.minttyrc
 fi
-
