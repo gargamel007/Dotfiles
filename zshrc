@@ -1,54 +1,60 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_TIME_BACKGROUND='239'
+POWERLEVEL9K_VIRTUALENV_BACKGROUND='green'
 
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator rbenv virtualenv background_jobs)
+
+#Fix wrong terminal colors when using tmux
+#because xfce term do not have the right $TERM setting
+if [ "$COLORTERM" = "gnome-terminal" -a "$TERM" = "xterm" ]; then
+        export TERM=xterm-256color
+fi
+if [ "$COLORTERM" = "xfce4-terminal" -a "$TERM" = "xterm" ]; then
+        export TERM=xterm-256color
+fi
+
+
+#### DEPRECATED OMZ Config just keeping this as a backup just in case
+# Path to your oh-my-zsh installation.
+# export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="pygmalion"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
+# ZSH_THEME="agnoster"
+# ZSH_THEME="pygmalion"
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
+#COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-not-found common-aliases colored-man sudo tmux z docker tmuxinator virtualenvwrapper pip)
+#plugins=(git command-not-found common-aliases colored-man sudo tmux z docker tmuxinator virtualenvwrapper pip)
+#source $ZSH/oh-my-zsh.sh
 
-source $ZSH/oh-my-zsh.sh
+#ANTIGEN CONFIG
+POWERLEVEL9K_INSTALLATION_PATH=$HOME/.antigen/bundles/bhilburn/powerlevel9k/powerlevel9k.zsh-theme
+source ~/.antigen/antigen.zsh
+antigen use prezto
+antigen bundle sorin-ionescu/prezto modules/autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
+antigen bundle sorin-ionescu/prezto modules/command-not-found
+antigen bundle sorin-ionescu/prezto modules/helper #required for git
+antigen bundle sorin-ionescu/prezto modules/git
+antigen bundle sorin-ionescu/prezto modules/python
+antigen bundle sorin-ionescu/prezto modules/node
+antigen bundle sorin-ionescu/prezto modules/rsync
+antigen bundle sorin-ionescu/prezto modules/ssh
+antigen bundle sorin-ionescu/prezto modules/tmux
+#THEME
+antigen theme bhilburn/powerlevel9k powerlevel9k
+#Should be the last to load
+antigen bundle sorin-ionescu/prezto modules/completion
+antigen bundle zsh-users/zsh-syntax-highlighting #Prezto module seems broken
+antigen bundle sorin-ionescu/prezto modules/history-substring-search
 
+antigen apply
 # User configuration
 
 export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -91,12 +97,3 @@ alias mux="tmuxinator"
 #Solarized Colors for ls and auto-completion
 eval `dircolors ~/.dircolors`
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
-#Fix wrong terminal colors when using tmux
-#because xfce term do not have the right $TERM setting
-if [ "$COLORTERM" = "gnome-terminal" -a "$TERM" = "xterm" ]; then
-        export TERM=xterm-256color
-fi
-if [ "$COLORTERM" = "xfce4-terminal" -a "$TERM" = "xterm" ]; then
-        export TERM=xterm-256color
-fi
