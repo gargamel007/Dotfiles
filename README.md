@@ -2,6 +2,7 @@ dotfiles
 ========
 
 Basic dotfiles I often use on my systems
+I use InconsolataGo NerdFont for Powerline Mono as default font on my terminal emulators
 
 ## Tmux Cheatsheat
 **Modifier** is Ctrl-a (like old GNU Screen)

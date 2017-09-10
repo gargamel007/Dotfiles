@@ -26,34 +26,39 @@ do
 	which $PROG >/dev/null || { echo "Please install $PROG"; exit 1; }
 done
 
-if [ ! -d ~/.oh-my-zsh ]; then
+#Deprecated Oh My Zsh stuff !
+#if [ ! -d ~/.oh-my-zsh ]; then
 	#Temp fix as long as https://github.com/robbyrussell/oh-my-zsh/pull/5893 is not fixed
-	sh -c "$(wget https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh -O -)" -s --batch || {
-	  echo "Could not install Oh My Zsh" >/dev/stderr
-	  exit 1
-	}
+#	sh -c "$(wget https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh -O -)" -s --batch || {
+#	  echo "Could not install Oh My Zsh" >/dev/stderr
+#	  exit 1
+#	}
 	#will not be needed when PR to enable batch installation is accepted !
 	#echo "Oh My Zsh is not installed. Please run : "
 	#echo "sh -c \"\$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)\""
 	#exit 1
-fi
+#fi
+##Install OhMyZshTheme
+#THEME_FILE="$HOME/.oh-my-zsh/custom/themes/pygmalion.zsh-theme"
+#mkdir -p $(dirname $THEME_FILE)
+#ln -fs $BASEDIR/pygmalion.zsh-theme $THEME_FILE
 
-#Install OhMyZshTheme
-THEME_FILE="$HOME/.oh-my-zsh/custom/themes/pygmalion.zsh-theme"
-mkdir -p $(dirname $THEME_FILE)
-ln -fs $BASEDIR/pygmalion.zsh-theme $THEME_FILE
+#Install Antigen plugin manager for zsh
+mkdir -p ~/.antigen/
+curl -L git.io/antigen > ~/.antigen/antigen.zsh
 
 #Install solarized colors for ls
 wget -P /tmp/ --no-check-certificate https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
 mv -f /tmp/dircolors.ansi-dark ~/.dircolors
 eval `dircolors ~/.dircolors`
 
-#Install solarized colors for tmux
-#Testing the dark setting with better colors
-#wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/seebi/tmux-colors-solarized/master/tmuxcolors-256.conf
-#mv -f /tmp/tmuxcolors-256.conf ~/.tmuxcolors-custom.conf
-wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/seebi/tmux-colors-solarized/master/tmuxcolors-dark.conf
-mv -f /tmp/tmuxcolors-dark.conf ~/.tmuxcolors-custom.conf
+#Intall TMux plugin manager
+if [ ! -d "~/.tmux/plugins/tpm" ] ; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+#DEPRECATED : Install solarized colors for tmux
+#wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/seebi/tmux-colors-solarized/master/tmuxcolors-dark.conf
+#mv -f /tmp/tmuxcolors-dark.conf ~/.tmuxcolors-custom.conf
 
 # configure git
 git config --global color.ui true
