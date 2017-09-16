@@ -29,7 +29,7 @@ I use InconsolataGo NerdFont for Powerline Mono as default font on my terminal e
   * Swith mode : ctrl-b
 
 ## Shell & Zsh
-
+* Jump to dir in history (fasd/autojump) : j <search string>
 
 ## Git Cheatsheet
 * Word diff : git diff --color-words=.
