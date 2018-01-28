@@ -99,3 +99,8 @@ alias mux="tmuxinator"
 #Solarized Colors for ls and auto-completion
 eval `dircolors ~/.dircolors`
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+#To make tilix happy
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
