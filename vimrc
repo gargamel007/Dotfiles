@@ -95,3 +95,7 @@ let g:ctrlp_cmd = 'CtrlPBuffer'
 set laststatus=2  " to show airline on startup
 let g:airline_theme='solarized'
 let g:airline_powerline_fonts=1
+
+" Disable mouse surpport
+set mouse=
+set ttymouse=
