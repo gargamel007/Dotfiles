@@ -23,7 +23,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'sickill/vim-monokai'
+Plugin 'joshdick/onedark.vim'
+
+" Plugin 'altercation/vim-colors-solarized' " unused
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -41,7 +44,7 @@ filetype plugin indent on    " required
 
 """""""""""""""""""""""
 " MAIN CONFIG
-" """"""""""""""""""""
+"""""""""""""""""""""
 
 " Change leader key to ,
 let mapleader=","
@@ -68,20 +71,31 @@ set hlsearch incsearch
 set ignorecase smartcase
 
 set background=dark
+
 " Setup Solarized
-if has('gui_running')
+" if has('gui_running')
     " running gui not really planned right now !
-else
+" else
     " in terminal mode assuming that solarized theme is selected
-    set t_Co=16
-    let g:solarized_termcolors=16
-endif
-silent! colorscheme solarized
+"    set t_Co=16
+"    let g:solarized_termcolors=16
+" endif
+" silent! colorscheme solarized
+
+" Setup Monokai
+" set t_Co=16
+" colorscheme monokai
+
+" Setup onedark
+let g:onedark_termcolors=16
+colorscheme onedark
+
+
 syntax on
 
 """"""""""""""""
 " PLUGIN CONFIG
-" """""""""""""""
+""""""""""""""""
 
 " NERDTREE
 map <F3> :NERDTreeToggle<CR>
@@ -93,8 +107,10 @@ let g:ctrlp_cmd = 'CtrlPBuffer'
 
 " Airline
 set laststatus=2  " to show airline on startup
-let g:airline_theme='solarized'
 let g:airline_powerline_fonts=1
+" let g:airline_theme='solarized'
+" let g:airline_theme='base16_monokai'
+let g:airline_theme='onedark'
 
 " Disable mouse surpport
 set mouse=

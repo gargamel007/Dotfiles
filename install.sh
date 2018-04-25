@@ -47,10 +47,10 @@ done
 mkdir -p ~/.antigen/
 curl -L git.io/antigen > ~/.antigen/antigen.zsh
 
-#Install solarized colors for ls
-wget -P /tmp/ --no-check-certificate https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
-mv -f /tmp/dircolors.ansi-dark ~/.dircolors
-eval `dircolors ~/.dircolors`
+#DEPRECATED Install solarized colors for ls
+#wget -P /tmp/ --no-check-certificate https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
+#mv -f /tmp/dircolors.ansi-dark ~/.dircolors
+#eval `dircolors ~/.dircolors`
 
 #Intall TMux plugin manager
 if [ ! -d "~/.tmux/plugins/tpm" ] ; then
@@ -83,6 +83,14 @@ ln -fs $BASEDIR/zshrc ~/.zshrc
 if [[ -d ~/.config/xfce4/terminal/ ]]; then
     ln -fs $BASEDIR/xfce4_terminalrc ~/.config/xfce4/terminal/terminalrc
 fi
+wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-monokai.16.theme
+wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-monokai.theme
+wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-onedark.16.theme
+wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-onedark.theme
+wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-solarized-dark.theme
+wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-solarized-dark.16.theme
+
+mkdir --parents ~/.local/share/xfce4/terminal/colorschemes/; mv -f /tmp/*.theme $_
 
 #install babun solarized theme if babun is detected
 if [[ -e ~/.minttyrc ]]; then

@@ -5,8 +5,19 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_TIME_BACKGROUND='239'
-POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='grey'
+
+POWERLEVEL9K_CONTEXT_TEMPLATE='%B%n%b@%m'
+POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='blue'
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='235'
 POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='red'
+
+POWERLEVEL9K_DIR_HOME_BACKGROUND='6'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='6'
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='6'
+POWERLEVEL9K_DIR_SHOW_WRITABLE=true
+POWERLEVEL9K_DIR_NOT_WRITABLE_BACKGROUND='3'
+
+
 POWERLEVEL9K_VIRTUALENV_BACKGROUND='green'
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
@@ -98,8 +109,8 @@ alias la="ls -hal"
 alias git_word-diff="git diff --color-words=."
 alias mux="tmuxinator"
 
-#Solarized Colors for ls and auto-completion
-eval `dircolors ~/.dircolors`
+#Deprecated : Solarized Colors for ls and auto-completion
+#eval `dircolors ~/.dircolors`
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 #To make tilix happy
