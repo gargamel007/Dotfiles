@@ -117,3 +117,9 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
+
+#Display neofetch
+if command -v neofetch >/dev/null 2>&1; then
+	alias clear="clear; neofetch"
+	neofetch
+fi
