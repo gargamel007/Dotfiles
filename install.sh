@@ -80,9 +80,11 @@ vim +PluginInstall +qall
 #Copy Zshrc file
 ln -fs $BASEDIR/zshrc ~/.zshrc
 
-if [[ -d ~/.config/xfce4/terminal/ ]]; then
-    ln -fs $BASEDIR/xfce4_terminalrc ~/.config/xfce4/terminal/terminalrc
-fi
+#XFCE TERMINAL CONFIG
+#if [[ -d ~/.config/xfce4/terminal/ ]]; then
+#    ln -fs $BASEDIR/xfce4_terminalrc ~/.config/xfce4/terminal/terminalrc
+#fi
+#Get some color schemes for xfceterminal
 wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-monokai.16.theme
 wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-monokai.theme
 wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-onedark.16.theme
@@ -93,6 +95,6 @@ wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/ba
 mkdir --parents ~/.local/share/xfce4/terminal/colorschemes/; mv -f /tmp/*.theme $_
 
 #install babun solarized theme if babun is detected
-if [[ -e ~/.minttyrc ]]; then
-    ln -fs $BASEDIR/minttyrc ~/.minttyrc
-fi
+#if [[ -e ~/.minttyrc ]]; then
+#    ln -fs $BASEDIR/minttyrc ~/.minttyrc
+#fi

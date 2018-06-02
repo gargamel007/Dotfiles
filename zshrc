@@ -61,6 +61,7 @@ antigen bundle sorin-ionescu/prezto modules/rsync
 antigen bundle sorin-ionescu/prezto modules/ssh
 antigen bundle sorin-ionescu/prezto modules/tmux
 antigen bundle sorin-ionescu/prezto modules/history
+antigen bundle robbyrussell/oh-my-zsh plugins/virtualenvwrapper
 #THEME
 antigen theme bhilburn/powerlevel9k powerlevel9k
 #Should be the last to load
