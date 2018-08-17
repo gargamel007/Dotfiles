@@ -76,6 +76,11 @@ antigen apply
 export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
+# Add yarn global bin path to PATH
+if [ -x "$(command -v yarn)" ]; then
+    export PATH="$PATH:$(yarn global bin)"
+fi
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
