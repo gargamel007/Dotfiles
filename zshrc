@@ -49,16 +49,17 @@ fi
 #ANTIGEN CONFIG
 POWERLEVEL9K_INSTALLATION_PATH=$HOME/.antigen/bundles/bhilburn/powerlevel9k/powerlevel9k.zsh-theme
 source ~/.antigen/antigen.zsh
+export NVM_LAZY_LOAD=true
+antigen bundle lukechilds/zsh-nvm
 antigen use prezto
-antigen bundle sorin-ionescu/prezto modules/autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
+antigen bundle sorin-ionescu/prezto modules/utility
 antigen bundle sorin-ionescu/prezto modules/command-not-found
 antigen bundle sorin-ionescu/prezto modules/helper #required for git
 antigen bundle sorin-ionescu/prezto modules/git
 antigen bundle sorin-ionescu/prezto modules/python
 antigen bundle sorin-ionescu/prezto modules/node
 antigen bundle sorin-ionescu/prezto modules/rsync
-antigen bundle sorin-ionescu/prezto modules/ssh
 antigen bundle sorin-ionescu/prezto modules/tmux
 antigen bundle sorin-ionescu/prezto modules/history
 antigen bundle robbyrussell/oh-my-zsh plugins/virtualenvwrapper
@@ -69,6 +70,7 @@ antigen bundle sorin-ionescu/prezto modules/completion
 antigen bundle sorin-ionescu/prezto modules/fasd
 antigen bundle zsh-users/zsh-syntax-highlighting #Prezto module seems broken
 antigen bundle sorin-ionescu/prezto modules/history-substring-search
+antigen bundle sorin-ionescu/prezto modules/autosuggestions
 
 antigen apply
 # User configuration
