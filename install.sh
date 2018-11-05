@@ -45,7 +45,7 @@ done
 
 #Install Antigen plugin manager for zsh
 mkdir -p ~/.antigen/
-curl -L git.io/antigen > ~/.antigen/antigen.zsh
+git clone https://github.com/zsh-users/antigen.git ~/.antigen
 
 #DEPRECATED Install solarized colors for ls
 #wget -P /tmp/ --no-check-certificate https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
