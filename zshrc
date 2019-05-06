@@ -1,7 +1,10 @@
+#Use this only for profiling ZSH
+#zmodload zsh/zprof
+
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_TIME_BACKGROUND='239'
@@ -49,8 +52,8 @@ fi
 #ANTIGEN CONFIG
 POWERLEVEL9K_INSTALLATION_PATH=$HOME/.antigen/bundles/bhilburn/powerlevel9k/powerlevel9k.zsh-theme
 source ~/.antigen/antigen.zsh
-export NVM_LAZY_LOAD=true
-antigen bundle lukechilds/zsh-nvm
+#export NVM_LAZY_LOAD=true
+#antigen bundle lukechilds/zsh-nvm
 antigen use prezto
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
 antigen bundle sorin-ionescu/prezto modules/utility
@@ -58,7 +61,7 @@ antigen bundle sorin-ionescu/prezto modules/command-not-found
 antigen bundle sorin-ionescu/prezto modules/helper #required for git
 antigen bundle sorin-ionescu/prezto modules/git
 antigen bundle sorin-ionescu/prezto modules/python
-antigen bundle sorin-ionescu/prezto modules/node
+#antigen bundle sorin-ionescu/prezto modules/node
 antigen bundle sorin-ionescu/prezto modules/rsync
 antigen bundle sorin-ionescu/prezto modules/tmux
 antigen bundle sorin-ionescu/prezto modules/history
@@ -131,3 +134,6 @@ if command -v neofetch >/dev/null 2>&1; then
 	alias clear="clear; neofetch"
 	neofetch
 fi
+
+#Use for debugging startup time
+#zprof
