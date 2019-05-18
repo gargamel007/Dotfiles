@@ -26,39 +26,16 @@ do
 	which $PROG >/dev/null || { echo "Please install $PROG"; exit 1; }
 done
 
-#Deprecated Oh My Zsh stuff !
-#if [ ! -d ~/.oh-my-zsh ]; then
-	#Temp fix as long as https://github.com/robbyrussell/oh-my-zsh/pull/5893 is not fixed
-#	sh -c "$(wget https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh -O -)" -s --batch || {
-#	  echo "Could not install Oh My Zsh" >/dev/stderr
-#	  exit 1
-#	}
-	#will not be needed when PR to enable batch installation is accepted !
-	#echo "Oh My Zsh is not installed. Please run : "
-	#echo "sh -c \"\$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)\""
-	#exit 1
-#fi
-##Install OhMyZshTheme
-#THEME_FILE="$HOME/.oh-my-zsh/custom/themes/pygmalion.zsh-theme"
-#mkdir -p $(dirname $THEME_FILE)
-#ln -fs $BASEDIR/pygmalion.zsh-theme $THEME_FILE
 
 #Install Antigen plugin manager for zsh
 mkdir -p ~/.antigen/
 git clone https://github.com/zsh-users/antigen.git ~/.antigen
 
-#DEPRECATED Install solarized colors for ls
-#wget -P /tmp/ --no-check-certificate https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
-#mv -f /tmp/dircolors.ansi-dark ~/.dircolors
-#eval `dircolors ~/.dircolors`
-
 #Intall TMux plugin manager
 if [ ! -d "~/.tmux/plugins/tpm" ] ; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
-#DEPRECATED : Install solarized colors for tmux
-#wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/seebi/tmux-colors-solarized/master/tmuxcolors-dark.conf
-#mv -f /tmp/tmuxcolors-dark.conf ~/.tmuxcolors-custom.conf
+
 
 # configure git
 git config --global color.ui true
@@ -93,8 +70,3 @@ wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/ba
 wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-solarized-dark.16.theme
 
 mkdir --parents ~/.local/share/xfce4/terminal/colorschemes/; mv -f /tmp/*.theme $_
-
-#install babun solarized theme if babun is detected
-#if [[ -e ~/.minttyrc ]]; then
-#    ln -fs $BASEDIR/minttyrc ~/.minttyrc
-#fi
