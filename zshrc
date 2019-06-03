@@ -73,6 +73,8 @@ antigen theme bhilburn/powerlevel9k powerlevel9k
 #Should be the last to load
 antigen bundle sorin-ionescu/prezto modules/completion
 antigen bundle sorin-ionescu/prezto modules/fasd
+antigen bundle zsh-users/docker # docker autocompletions
+antigen bundle zsh-users/kubectl # K8s autocompletions
 antigen bundle zsh-users/zsh-syntax-highlighting #Prezto module seems broken
 antigen bundle sorin-ionescu/prezto modules/history-substring-search
 antigen bundle sorin-ionescu/prezto modules/autosuggestions
