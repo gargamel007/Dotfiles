@@ -26,6 +26,10 @@ do
 	which $PROG >/dev/null || { echo "Please install $PROG"; exit 1; }
 done
 
+#Initiate private zshconfig file with current user name
+if [ ! -f ~/.zshrc_privateSettings ]; then
+    echo "DEFAULT_USER=$(whoami)" > ~/.zshrc_privateSettings
+fi
 
 #Install Antigen plugin manager for zsh
 mkdir -p ~/.antigen/
