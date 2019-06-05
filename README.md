@@ -30,6 +30,7 @@ I use InconsolataGo NerdFont for Powerline Mono as default font on my terminal e
 
 ## Shell & Zsh
 * Jump to dir in history (fasd/autojump) : j <search string>
+* Use sudoedit to edit files in root while keeping vim settings
 
 ## Git Cheatsheet
 * Word diff : git diff --color-words=.
