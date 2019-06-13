@@ -155,7 +155,7 @@ fi
 
 # yay / AUR aliases if detected
 if [ -x "$(command -v yay)" ]; then
-    alias pksyua="yay -Syu --noconfirm"
+    alias pksyua="yay -Syu --noconfirm" #Install skipping all questions
     alias yayskip='yay -S --mflags --skipinteg'
     alias trizenskip='trizen -S --skipinteg'
 fi
