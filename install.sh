@@ -3,7 +3,7 @@
 ###########################
 #Doc & Usage
 ###########################
-:<<'USAGE'
+: <<'USAGE'
 @TODO
 USAGE
 
@@ -15,20 +15,21 @@ BACKUPDIR="~/.dotfilesbak"
 GIT_USERNAME="ioExpander"
 GIT_EMAIL="ioExpander@users.noreply.github.com"
 
-
 #echo $BASEDIR
 cd $BASEDIR
 BASEDIR=$(pwd)
 
 #Check Installed programs
-for PROG in wget zsh vim tmux
-do
-	which $PROG >/dev/null || { echo "Please install $PROG"; exit 1; }
+for PROG in wget zsh vim tmux; do
+    which $PROG >/dev/null || {
+        echo "Please install $PROG"
+        exit 1
+    }
 done
 
 #Initiate private zshconfig file with current user name
 if [ ! -f ~/.zshrc_privateSettings ]; then
-    echo "DEFAULT_USER=$(whoami)" > ~/.zshrc_privateSettings
+    echo "DEFAULT_USER=$(whoami)" >~/.zshrc_privateSettings
 fi
 
 #Install Antigen plugin manager for zsh
@@ -36,10 +37,9 @@ mkdir -p ~/.antigen/
 git clone https://github.com/zsh-users/antigen.git ~/.antigen
 
 #Intall TMux plugin manager
-if [ ! -d "~/.tmux/plugins/tpm" ] ; then
+if [ ! -d "~/.tmux/plugins/tpm" ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
-
 
 # configure git
 git config --global color.ui true
@@ -73,4 +73,5 @@ wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/ba
 wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-solarized-dark.theme
 wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-solarized-dark.16.theme
 
-mkdir --parents ~/.local/share/xfce4/terminal/colorschemes/; mv -f /tmp/*.theme $_
+mkdir --parents ~/.local/share/xfce4/terminal/colorschemes/
+mv -f /tmp/*.theme $_
