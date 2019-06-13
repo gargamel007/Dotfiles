@@ -28,7 +28,6 @@ POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='6'
 POWERLEVEL9K_DIR_SHOW_WRITABLE=true
 POWERLEVEL9K_DIR_NOT_WRITABLE_BACKGROUND='3'
 
-
 POWERLEVEL9K_VIRTUALENV_BACKGROUND='green'
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
@@ -37,13 +36,13 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator rbenv virtualenv backg
 #Fix wrong terminal colors when using tmux
 #because xfce term do not have the right $TERM setting
 if [ "$COLORTERM" = "gnome-terminal" -a "$TERM" = "xterm" ]; then
-        export TERM=xterm-256color
+    export TERM=xterm-256color
 fi
 if [ "$COLORTERM" = "xfce4-terminal" -a "$TERM" = "xterm" ]; then
-        export TERM=xterm-256color
+    export TERM=xterm-256color
 fi
 
-ENABLE_CORRECTION="true" #enable correction of mistyped commands
+ENABLE_CORRECTION="true"       #enable correction of mistyped commands
 COMPLETION_WAITING_DOTS="true" #display red dots whilst waiting for completion
 
 # OLD ANTIGEN CONFIG using Prezto
@@ -76,6 +75,7 @@ COMPLETION_WAITING_DOTS="true" #display red dots whilst waiting for completion
 
 #ANTIGEN new config back with oh-my-zsh
 POWERLEVEL9K_INSTALLATION_PATH=$HOME/.antigen/bundles/bhilburn/powerlevel9k/powerlevel9k.zsh-theme
+HIST_STAMPS="yyyy-mm-dd" # Format the output of history for oh-my-zsh
 source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle colored-man-pages
@@ -84,7 +84,7 @@ antigen bundle docker
 antigen bundle git
 antigen bundle kubectl
 antigen bundle fasd # use j <FolderName> to jump or v FileName to edit
-antigen bundle fd # find replacement auto-completion
+antigen bundle fd   # find replacement auto-completion
 if [ -x "$(command -v fzf)" ]; then
     antigen bundle fzf # fuzzy auto complete (Ctrl - T for files) (Ctrl - R for history)
 fi
@@ -92,29 +92,28 @@ antigen bundle rand-quote # run 'quote'
 antigen bundle rsync
 antigen bundle sudo # add sudo in front of last CMD with ESC ESC combo
 antigen bundle virtualenvwrapper
-antigen bundle zsh_reload # reloads zsh config by running 'src'
+antigen bundle zsh_reload                              # reloads zsh config by running 'src'
 
 antigen bundle sorin-ionescu/prezto modules/completion # because it's better than Oh-my-ZSH
 
 #THEME
 antigen theme bhilburn/powerlevel9k powerlevel9k
 #Others
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239' 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions # Additional completion files
-antigen bundle zsh-users/zsh-syntax-highlighting #needs to be loaded before history-substring search
+antigen bundle zsh-users/zsh-completions              # Additional completion files
+antigen bundle zsh-users/zsh-syntax-highlighting      #needs to be loaded before history-substring search
 antigen bundle zsh-users/zsh-history-substring-search # search a substring in history with arrow keys
 
 antigen apply
 
-## @Todo later : 
-# pipenv 
+## @Todo later :
+# pipenv
 # direnv a tool for sourcing env files in directories
 # mosh plugin Do I still use mosh ?
 # find somewhere to display quotes
 # Scaleway autocomplete : https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/scw
 # https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/terraform
-
 
 ### User configuration
 
@@ -133,8 +132,6 @@ export EDITOR="vim"
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-
 
 # Set personal aliases
 alias tmux="tmux -2"
@@ -160,8 +157,6 @@ if [ ! -x "$(command -v fd)" ]; then
     alias fd='find . -type d -name'
 fi
 
-
-
 # # Completion settings
 # zstyle ':completion:*' format '%B --- %d --- %b'
 # zstyle ':completion:*' group-name ''
@@ -177,16 +172,15 @@ fi
 # # zstyle ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX+$#SUFFIX)/3 )) numeric )'
 # zstyle ':completion:*' menu select
 
-
 #To make tilix happy
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
+    source /etc/profile.d/vte.sh
 fi
 
 #Display neofetch
 if command -v neofetch >/dev/null 2>&1; then
-	alias clear="clear; neofetch"
-	neofetch
+    alias clear="clear; neofetch"
+    neofetch
 fi
 
 #Use for debugging startup time
