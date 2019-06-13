@@ -54,6 +54,8 @@ git config --global user.email $GIT_EMAIL
 # Linking files
 ln -fs $BASEDIR/tmux.conf ~/.tmux.conf
 ln -fs $BASEDIR/vimrc ~/.vimrc
+mkdir -p ~/.config/termite/
+ln -fs $BASEDIR/termite_config ~/.config/termite/config
 
 #Install Vundle plugins in vim
 vim +PluginInstall +qall
