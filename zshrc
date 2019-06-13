@@ -141,6 +141,32 @@ alias gdiff="git diff --ignore-space-at-eol -b -w --ignore-blank-lines"
 alias ls="ls --color=auto -F" #shows trailing / at the end of DirNames
 alias ll="ls -hl"
 alias la="ls -hal"
+alias l='ls'
+
+# Pacman aliases if detected
+if [ -x "$(command -v pacman)" ]; then
+    alias pacman='sudo pacman --color auto'
+    alias update='sudo pacman -Syyu --color auto'
+    #Cleanup orphaned packages
+    alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' 
+fi
+
+
+# yay / AUR aliases if detected
+if [ -x "$(command -v yay)" ]; then
+    alias pksyua="yay -Syu --noconfirm"
+    alias yayskip='yay -S --mflags --skipinteg'
+    alias trizenskip='trizen -S --skipinteg'
+fi
+
+#get fastest mirrors in your neighborhood 
+if [ -x "$(command -v reflector)" ]; then
+    alias mirror="sudo reflector -f 30 -l 30 --number 20 --verbose --save /etc/pacman.d/mirrorlist"
+    alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
+    alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+    alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+fi
+
 
 # Grep aliases if rg is detected
 if [ -x "$(command -v rg)" ]; then
