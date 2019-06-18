@@ -56,6 +56,8 @@ ln -fs $BASEDIR/tmux.conf ~/.tmux.conf
 ln -fs $BASEDIR/vimrc ~/.vimrc
 mkdir -p ~/.config/termite/
 ln -fs $BASEDIR/termite_config ~/.config/termite/config
+mkdir -p ~/.config/i3/
+ln -fs $BASEDIR/i3_config ~/.config/i3/config
 
 #Install Vundle plugins in vim
 vim +PluginInstall +qall
