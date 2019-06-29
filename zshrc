@@ -138,10 +138,10 @@ alias tmux="tmux -2"
 alias gwdiff="git diff --word-diff=color -b -w --ignore-blank-lines --ignore-space-at-eol"
 alias gdiff="git diff --ignore-space-at-eol -b -w --ignore-blank-lines"
 
-alias ls="ls --color=auto -F" #shows trailing / at the end of DirNames
+alias ls="nocorrect ls --color=auto -F" #shows trailing / at the end of DirNames
 alias ll="ls -hl"
 alias la="ls -hal"
-alias l='ls'
+alias l='nocorrect ls'
 
 # Pacman aliases if detected
 if [ -x "$(command -v pacman)" ]; then
@@ -171,7 +171,7 @@ fi
 
 # Grep aliases if rg is detected
 if [ -x "$(command -v rg)" ]; then
-    alias grep='rg'
+    alias grep='nocorrect rg'
 fi
 
 #git aliases
@@ -183,6 +183,12 @@ unalias fd
 if [ ! -x "$(command -v fd)" ]; then
     alias fd='find . -type d -name'
 fi
+
+alias find='nocorrect find'
+alias vim='nocorrect vim'
+
+#disable autocorrect
+unsetopt correct
 
 # # Completion settings
 # zstyle ':completion:*' format '%B --- %d --- %b'
