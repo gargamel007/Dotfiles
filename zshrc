@@ -46,7 +46,6 @@ ENABLE_CORRECTION="true"       #enable correction of mistyped commands
 COMPLETION_WAITING_DOTS="true" #display red dots whilst waiting for completion
 
 # OLD ANTIGEN CONFIG using Prezto
-# Todo : new tools exa for ls, fd for find, ripgrep for grep
 # POWERLEVEL9K_INSTALLATION_PATH=$HOME/.antigen/bundles/bhilburn/powerlevel9k/powerlevel9k.zsh-theme
 # source ~/.antigen/antigen.zsh
 # #export NVM_LAZY_LOAD=true
@@ -97,7 +96,8 @@ antigen bundle zsh_reload                              # reloads zsh config by r
 antigen bundle sorin-ionescu/prezto modules/completion # because it's better than Oh-my-ZSH
 
 #THEME
-antigen theme bhilburn/powerlevel9k powerlevel9k
+#antigen theme bhilburn/powerlevel9k powerlevel9k
+antigen theme romkatv/powerlevel10k # much faster than powerlevel9K !
 #Others
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
 antigen bundle zsh-users/zsh-autosuggestions
@@ -106,9 +106,13 @@ antigen bundle zsh-users/zsh-syntax-highlighting      #needs to be loaded before
 antigen bundle zsh-users/zsh-history-substring-search # search a substring in history with arrow keys
 
 antigen apply
+#Run 'antigen reset' and 'antigen cache-gen' after changes in antigen config
+#Run 'antigen update' from time to time
 
 ## @Todo later :
 # pipenv
+# new tools exa for ls : tested not conviced. To test again
+# fd for find
 # direnv a tool for sourcing env files in directories
 # mosh plugin Do I still use mosh ?
 # find somewhere to display quotes
