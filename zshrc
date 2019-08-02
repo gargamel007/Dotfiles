@@ -150,7 +150,7 @@ alias l='nocorrect ls'
 # Pacman aliases if detected
 if [ -x "$(command -v pacman)" ]; then
     alias pacman='sudo pacman --color auto'
-    alias update='sudo pacman -Syyu --color auto'
+    alias upgrade='sudo pacman -Syyu --color auto'
     #Cleanup orphaned packages
     alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
     alias pac_clean='sudo paccache -rk 1' # don't forget to run this from time to time 
@@ -162,6 +162,7 @@ if [ -x "$(command -v yay)" ]; then
     alias pksyua="yay -Syu --noconfirm" #Install skipping all questions
     alias yayskip='yay -S --mflags --skipinteg'
     alias trizenskip='trizen -S --skipinteg'
+    alias upgrade='nocorrect yay -Syyu --noconfirm'
 fi
 
 #get fastest mirrors in your neighborhood 
