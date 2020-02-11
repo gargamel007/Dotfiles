@@ -1,37 +1,44 @@
 #Use this only for profiling ZSH
 #zmodload zsh/zprof
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Load private settings... if found
 if [ -f ~/.zshrc_privateSettings ]; then
     source ~/.zshrc_privateSettings
 fi
 
 # Theme configuration
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-POWERLEVEL9K_SHORTEN_DELIMITER=""
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-POWERLEVEL9K_TIME_BACKGROUND='239'
+#POWERLEVEL9K_MODE='nerdfont-complete'
+#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+#POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+#POWERLEVEL9K_SHORTEN_DELIMITER=""
+#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+#POWERLEVEL9K_TIME_BACKGROUND='239'
 
-POWERLEVEL9K_CONTEXT_TEMPLATE='%B%n%b@%m'
-POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='blue'
-POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='235'
-POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='red'
-POWERLEVEL9K_CONTEXT_REMOTE_BACKGROUND='grey'
+#POWERLEVEL9K_CONTEXT_TEMPLATE='%B%n%b@%m'
+#POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='blue'
+#POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='235'
+#POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='red'
+#POWERLEVEL9K_CONTEXT_REMOTE_BACKGROUND='grey'
 
-POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='235'
-POWERLEVEL9K_DIR_HOME_BACKGROUND='6'
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='6'
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='6'
-POWERLEVEL9K_DIR_SHOW_WRITABLE=true
-POWERLEVEL9K_DIR_NOT_WRITABLE_BACKGROUND='3'
+#POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='235'
+#POWERLEVEL9K_DIR_HOME_BACKGROUND='6'
+#POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='6'
+#POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='6'
+#POWERLEVEL9K_DIR_SHOW_WRITABLE=true
+#POWERLEVEL9K_DIR_NOT_WRITABLE_BACKGROUND='3'
 
-POWERLEVEL9K_VIRTUALENV_BACKGROUND='green'
+#POWERLEVEL9K_VIRTUALENV_BACKGROUND='green'
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator rbenv virtualenv background_jobs)
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator rbenv virtualenv background_jobs)
 
 #Fix wrong terminal colors when using tmux
 #because xfce term do not have the right $TERM setting
@@ -98,6 +105,7 @@ antigen bundle sorin-ionescu/prezto modules/completion # because it's better tha
 #THEME
 #antigen theme bhilburn/powerlevel9k powerlevel9k
 antigen theme romkatv/powerlevel10k # much faster than powerlevel9K !
+# Tip : run p10k configure to configure prompt with sensible defaults (after nerd font is on terminal)
 #Others
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
 antigen bundle zsh-users/zsh-autosuggestions
@@ -125,9 +133,9 @@ export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Add yarn global bin path to PATH
-if [ -x "$(command -v yarn)" ]; then
-    export PATH="$PATH:$(yarn global bin)"
-fi
+#if [ -x "$(command -v yarn)" ]; then
+#    export PATH="$PATH:$(yarn global bin)"
+#fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -215,11 +223,16 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
 fi
 
-#Display neofetch
+#Display neofetch on clear but not on terminal start
 if command -v neofetch >/dev/null 2>&1; then
     alias clear="clear; neofetch"
-    neofetch
+    #neofetch disable on terminal start
 fi
 
 #Use for debugging startup time
 #zprof
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source /home/aditye/.config/broot/launcher/bash/br
