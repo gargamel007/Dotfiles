@@ -74,8 +74,6 @@ wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/ba
 wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-monokai.theme
 wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-onedark.16.theme
 wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-onedark.theme
-wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-solarized-dark.theme
-wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-solarized-dark.16.theme
 
 mkdir --parents ~/.local/share/xfce4/terminal/colorschemes/
 mv -f /tmp/*.theme $_

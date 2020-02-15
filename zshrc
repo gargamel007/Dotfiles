@@ -93,6 +93,7 @@ antigen bundle fasd # use j <FolderName> to jump or v FileName to edit
 antigen bundle fd   # find replacement auto-completion
 if [ -x "$(command -v fzf)" ]; then
     antigen bundle fzf # fuzzy auto complete (Ctrl - T for files) (Ctrl - R for history)
+    # (cd xyz**<TAB> for fuzzy completion
 fi
 antigen bundle rand-quote # run 'quote'
 antigen bundle rsync
@@ -235,4 +236,6 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source /home/aditye/.config/broot/launcher/bash/br
+if [ -x "$(command -v broot)" ]; then
+    source /home/aditye/.config/broot/launcher/bash/br
+fi
