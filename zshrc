@@ -13,33 +13,6 @@ if [ -f ~/.zshrc_privateSettings ]; then
     source ~/.zshrc_privateSettings
 fi
 
-# Theme configuration
-#POWERLEVEL9K_MODE='nerdfont-complete'
-#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-#POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-#POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-#POWERLEVEL9K_SHORTEN_DELIMITER=""
-#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-#POWERLEVEL9K_TIME_BACKGROUND='239'
-
-#POWERLEVEL9K_CONTEXT_TEMPLATE='%B%n%b@%m'
-#POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='blue'
-#POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='235'
-#POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='red'
-#POWERLEVEL9K_CONTEXT_REMOTE_BACKGROUND='grey'
-
-#POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='235'
-#POWERLEVEL9K_DIR_HOME_BACKGROUND='6'
-#POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='6'
-#POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='6'
-#POWERLEVEL9K_DIR_SHOW_WRITABLE=true
-#POWERLEVEL9K_DIR_NOT_WRITABLE_BACKGROUND='3'
-
-#POWERLEVEL9K_VIRTUALENV_BACKGROUND='green'
-
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator rbenv virtualenv background_jobs)
-
 #Fix wrong terminal colors when using tmux
 #because xfce term do not have the right $TERM setting
 if [ "$COLORTERM" = "gnome-terminal" -a "$TERM" = "xterm" ]; then
@@ -51,36 +24,7 @@ fi
 
 ENABLE_CORRECTION="true"       #enable correction of mistyped commands
 COMPLETION_WAITING_DOTS="true" #display red dots whilst waiting for completion
-
-# OLD ANTIGEN CONFIG using Prezto
-# POWERLEVEL9K_INSTALLATION_PATH=$HOME/.antigen/bundles/bhilburn/powerlevel9k/powerlevel9k.zsh-theme
-# source ~/.antigen/antigen.zsh
-# #export NVM_LAZY_LOAD=true
-# #antigen bundle lukechilds/zsh-nvm
-# antigen use prezto
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=239'
-# antigen bundle sorin-ionescu/prezto modules/utility
-# antigen bundle sorin-ionescu/prezto modules/command-not-found
-# antigen bundle sorin-ionescu/prezto modules/helper #required for git
-# antigen bundle sorin-ionescu/prezto modules/git
-# #antigen bundle sorin-ionescu/prezto modules/node
-# antigen bundle sorin-ionescu/prezto modules/rsync
-# antigen bundle sorin-ionescu/prezto modules/tmux
-# antigen bundle sorin-ionescu/prezto modules/history
-# antigen bundle robbyrussell/oh-my-zsh plugins/virtualenvwrapper
-# #THEME
-# antigen theme bhilburn/powerlevel9k powerlevel9k
-# #Should be the last to load
-# antigen bundle sorin-ionescu/prezto modules/completion
-# antigen bundle sorin-ionescu/prezto modules/fasd
-# antigen bundle robbyrussell/oh-my-zsh plugins/docker # docker autocompletions
-# antigen bundle robbyrussell/oh-my-zsh plugins/kubectl # K8s autocompletions
-# antigen bundle zsh-users/zsh-syntax-highlighting #Prezto module seems broken
-# antigen bundle sorin-ionescu/prezto modules/history-substring-search
-# antigen bundle sorin-ionescu/prezto modules/autosuggestions
-
 #ANTIGEN new config back with oh-my-zsh
-POWERLEVEL9K_INSTALLATION_PATH=$HOME/.antigen/bundles/bhilburn/powerlevel9k/powerlevel9k.zsh-theme
 HIST_STAMPS="yyyy-mm-dd" # Format the output of history for oh-my-zsh
 source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
@@ -120,11 +64,7 @@ antigen apply
 
 ## @Todo later :
 # pipenv
-# new tools exa for ls : tested not conviced. To test again
-# fd for find
 # direnv a tool for sourcing env files in directories
-# mosh plugin Do I still use mosh ?
-# find somewhere to display quotes
 # Scaleway autocomplete : https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/scw
 # https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/terraform
 
@@ -155,6 +95,13 @@ alias ls="nocorrect ls --color=auto -F" #shows trailing / at the end of DirNames
 alias ll="ls -hl"
 alias la="ls -hal"
 alias l='nocorrect ls'
+
+# ls alias if exa is found
+if [ -x "$(command -v exa)" ]; then
+    alias ll="exa -hl --icons"
+    alias la="exa -hal --icons"
+    alias l="exa --icons"
+fi
 
 # Pacman aliases if detected
 if [ -x "$(command -v pacman)" ]; then
@@ -204,21 +151,6 @@ alias vim='nocorrect vim'
 #disable autocorrect
 unsetopt correct
 
-# # Completion settings
-# zstyle ':completion:*' format '%B --- %d --- %b'
-# zstyle ':completion:*' group-name ''
-# zstyle ':completion:*:descriptions'    format $'%{\e[0;31m%}completing %B%d%b%{\e[0m%}'
-# zstyle ':completion:*:warnings' format "%B$fg[red]%}---- no match for: $fg[white]%d%b"
-# zstyle ':completion:*:messages' format '%B%U---- %d%u%b'
-# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # ls colors in completion
-# # activate approximate completion, but only after regular completion (_complete)
-# zstyle ':completion:::::' completer _complete _approximate
-# # limit to 2 errors
-# zstyle ':completion:*:approximate:*' max-errors 2
-# # or to have a better heuristic, by allowing one error per 3 character typed
-# # zstyle ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX+$#SUFFIX)/3 )) numeric )'
-# zstyle ':completion:*' menu select
-
 #To make tilix happy
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
@@ -230,12 +162,12 @@ if command -v neofetch >/dev/null 2>&1; then
     #neofetch disable on terminal start
 fi
 
-#Use for debugging startup time
-#zprof
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 if [ -x "$(command -v broot)" ]; then
     source /home/aditye/.config/broot/launcher/bash/br
 fi
+
+#Use for debugging startup time
+#zprof
