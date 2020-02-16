@@ -158,7 +158,7 @@ fi
 
 #Display neofetch on clear but not on terminal start
 if command -v neofetch >/dev/null 2>&1; then
-    alias clear="clear; neofetch"
+    alias clear="clear; neofetch --ascii_colors 4 --colors 4 1 1 4 1 fg"
     #neofetch disable on terminal start
 fi
 
