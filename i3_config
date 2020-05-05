@@ -226,7 +226,8 @@ bindsym $mod+r mode "resize"
 #################                          Startup Apps                                               #################
 #####################################################################################################################
 
-exec_always --no-startup-id killall -9 polybar && polybar example #TODO replace with polybar startup script
+exec_always --no-startup-id killall -9 polybar
+exec_always --no-startup-id sleep 1 && polybar example
 exec_always --no-startup-id feh --randomize --bg-scale ~/Synced/Desktops/* # wallpaper will change on every reload
 exec_always --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
