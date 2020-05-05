@@ -135,6 +135,12 @@ if [ -x "$(command -v rg)" ]; then
     alias grep='nocorrect rg'
 fi
 
+
+# Less alias if most is detected
+if [ -x "$(command -v most)" ]; then
+    alias lest='nocorrect most'
+fi
+
 #git aliases
 alias git_word-diff="git diff --color-words=."
 alias mux="tmuxinator"
