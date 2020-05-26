@@ -119,6 +119,7 @@ if [ -x "$(command -v yay)" ]; then
     alias yayskip='yay -S --mflags --skipinteg'
     alias trizenskip='trizen -S --skipinteg'
     alias upgrade='nocorrect yay -Syyu --noconfirm'
+    alias pac_clean='yay -Sc'
 fi
 
 #get fastest mirrors in your neighborhood 
