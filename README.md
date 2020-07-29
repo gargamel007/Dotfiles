@@ -31,7 +31,8 @@ I use FiraCode NerdFont as default font on my terminal emulators
 ## Shell & Zsh
 * Jump to dir in history (fasd/autojump) : j <search string>
 * Use sudoedit to edit files in root while keeping vim settings
-* Use <CTRL-R> for fuzzy zsh history search
+* Use <CTRL+R> for fuzzy zsh history search
+* Use <CTRL+T> for fuzzy find in directories / files
 
 ## Git Cheatsheet
 * Word diff : git diff --color-words=.
