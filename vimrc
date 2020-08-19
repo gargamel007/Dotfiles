@@ -90,6 +90,8 @@ set background=dark
 let g:onedark_termcolors=16
 colorscheme onedark
 
+" Fix Backspace key in MacOS
+set backspace=indent,eol,start
 
 syntax on
 

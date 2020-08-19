@@ -91,7 +91,14 @@ alias tmux="tmux -2"
 alias gwdiff="git diff --word-diff=color -b -w --ignore-blank-lines --ignore-space-at-eol"
 alias gdiff="git diff --ignore-space-at-eol -b -w --ignore-blank-lines"
 
-alias ls="nocorrect ls --color=auto -F" #shows trailing / at the end of DirNames
+if ls --color=auto &> /dev/null
+then
+    alias ls="nocorrect ls --color=auto -F" #shows trailing / at the end of DirNames
+else    
+    #we are on MacOS
+    export CLICOLOR=1
+    alias ls="nocorrect ls -F"
+fi
 alias ll="ls -hl"
 alias la="ls -hal"
 alias l='nocorrect ls'
