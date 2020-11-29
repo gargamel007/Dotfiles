@@ -33,6 +33,7 @@ antigen bundle common-aliases
 antigen bundle docker
 antigen bundle git
 antigen bundle kubectl
+antigen bundle terraform
 antigen bundle fasd # use j <FolderName> to jump or v FileName to edit
 antigen bundle fd   # find replacement auto-completion
 if [ -x "$(command -v fzf)" ]; then
@@ -185,3 +186,6 @@ fi
 
 #Use for debugging startup time
 #zprof
+
+# Scaleway CLI autocomplete initialization.
+eval "$(scw autocomplete script shell=zsh)"
