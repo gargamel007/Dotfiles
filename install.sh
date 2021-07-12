@@ -54,10 +54,10 @@ git config --global user.email $GIT_EMAIL
 # Linking files
 ln -fs $BASEDIR/tmux.conf ~/.tmux.conf
 ln -fs $BASEDIR/vimrc ~/.vimrc
-mkdir -p ~/.config/termite/
-ln -fs $BASEDIR/termite_config ~/.config/termite/config
-mkdir -p ~/.config/i3/
-ln -fs $BASEDIR/i3_config ~/.config/i3/config
+#mkdir -p ~/.config/termite/
+#ln -fs $BASEDIR/termite_config ~/.config/termite/config
+#mkdir -p ~/.config/i3/
+#ln -fs $BASEDIR/i3_config ~/.config/i3/config
 
 #Install Vundle plugins in vim
 vim +PluginInstall +qall
@@ -70,10 +70,9 @@ ln -fs $BASEDIR/zshrc ~/.zshrc
 #    ln -fs $BASEDIR/xfce4_terminalrc ~/.config/xfce4/terminal/terminalrc
 #fi
 #Get some color schemes for xfceterminal
-wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-monokai.16.theme
-wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-monokai.theme
-wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-onedark.16.theme
-wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-onedark.theme
-
-mkdir --parents ~/.local/share/xfce4/terminal/colorschemes/
-mv -f /tmp/*.theme $_
+#wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-monokai.16.theme
+#wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-monokai.theme
+#wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-onedark.16.theme
+#wget -P /tmp/ --no-check-certificate https://raw.githubusercontent.com/afg984/base16-xfce4-terminal/master/colorschemes/base16-onedark.theme
+#mkdir --parents ~/.local/share/xfce4/terminal/colorschemes/
+#mv -f /tmp/*.theme $_
