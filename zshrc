@@ -189,7 +189,7 @@ fi
 #zprof
 
 # Scaleway CLI autocomplete initialization.
-if [ ! -x "$(command -v scw)" ]; then
+if [ -x "$(command -v scw)" ]; then
     eval "$(scw autocomplete script shell=zsh)"
 fi
 
