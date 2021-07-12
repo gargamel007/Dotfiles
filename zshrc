@@ -107,9 +107,9 @@ alias l='nocorrect ls'
 
 # ls alias if exa is found
 if [ -x "$(command -v exa)" ]; then
-    alias ll="exa -hl --icons"
-    alias la="exa -hal --icons"
-    alias l="exa --icons"
+    alias ll="exa -hl"
+    alias la="exa -hal"
+    alias l="exa"
 fi
 
 # Pacman aliases if detected
