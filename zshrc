@@ -33,6 +33,7 @@ antigen bundle colored-man-pages
 antigen bundle common-aliases
 antigen bundle docker
 antigen bundle git
+antigen bundle ssh-agent
 antigen bundle kubectl
 antigen bundle terraform
 antigen bundle fasd # use j <FolderName> to jump or v FileName to edit
